@@ -8,5 +8,13 @@
 </head>
 <body>
 	<h2>Register here...</h2>
+	<form action="save" method="post">
+	<pre>
+	Name <input type="text" name="name">
+	Email <input type="text" name="email">
+	Mobile <input type="text" name="mobile">
+	<input type="submit" value="save">
+	</pre>
+	</form>
 </body>
 </html>
