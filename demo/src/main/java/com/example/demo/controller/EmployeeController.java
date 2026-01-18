@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.dto.EmployeeDto;
 import com.example.demo.entity.Employee;
 import com.example.demo.service.EmployeeService;
 
 @Controller
+@RequestMapping("/api/v1/employee")
 public class EmployeeController {
 	
 	@Autowired
@@ -26,13 +28,20 @@ public class EmployeeController {
 //		employeeService.saveEmployee(employee);
 //		return "register"; //--> this is act like request dispatcher in servlets controller layer  
 //	}
+//	@RequestMapping("/save")
+//	public String saveRegistration(
+//			@RequestParam String name,
+//			@RequestParam String email,
+//			@RequestParam String mobile
+//			) {
+//		employeeService.saveEmployee(name,email,mobile);
+//		return "register"; //--> this is act like request dispatcher in servlets controller layer  
+//	}
 	@RequestMapping("/save")
 	public String saveRegistration(
-			@RequestParam String name,
-			@RequestParam String email,
-			@RequestParam String mobile
+		EmployeeDto employeeDto
 			) {
-		employeeService.saveEmployee(name,email,mobile);
+		employeeService.saveEmployee(employeeDto);
 		return "register"; //--> this is act like request dispatcher in servlets controller layer  
 	}
 	
